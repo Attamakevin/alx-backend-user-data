@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""_summary_
+"""user model
 """
 
 
@@ -13,14 +13,14 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index() -> str:
-    """_summary_
+    """home page
     """
     return jsonify({"message": "Bienvenue"})
 
 
 @app.route('/users', methods=['POST'])
 def users() -> str:
-    """_summary_
+    """user model
     """
     email = request.form.get('email')
     password = request.form.get('password')
@@ -35,7 +35,7 @@ def users() -> str:
 
 @app.route('/sessions', methods=['POST'])
 def login() -> str:
-    """_summary_
+    """login
 
     Returns:
         str: _description_
@@ -56,7 +56,7 @@ def login() -> str:
 
 @app.route('/sessions', methods=['DELETE'])
 def logout() -> str:
-    """_summary_
+    """logout
     """
     session_id = request.cookies.get('session_id')
     user = AUTH.get_user_from_session_id(session_id)
@@ -68,7 +68,7 @@ def logout() -> str:
 
 @app.route('/profile', methods=['GET'])
 def profile() -> str:
-    """_summary_
+    """profile 
     """
     session_id = request.cookies.get('session_id')
     user = AUTH.get_user_from_session_id(session_id)
@@ -80,7 +80,7 @@ def profile() -> str:
 
 @app.route('/reset_password', methods=['POST'])
 def get_reset_password_token() -> str:
-    """_summary_
+    """password reset
 
     Returns:
         str: _description_
@@ -95,7 +95,7 @@ def get_reset_password_token() -> str:
 
 @app.route('/reset_password', methods=['PUT'])
 def update_password() -> str:
-    """_summary_
+    """update password
 
     Returns:
         str: _description_

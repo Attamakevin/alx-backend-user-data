@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""_summary_
+"""user model
 """
 
 
@@ -13,7 +13,7 @@ from typing import Union
 
 
 def _hash_password(password: str) -> str:
-    """_summary_
+    """user model
 
     Args:
         password (str): _description_
@@ -25,7 +25,7 @@ def _hash_password(password: str) -> str:
 
 
 def _generate_uuid() -> str:
-    """_summary_
+    """user model_
 
     Raises:
         ValueError: _description_
@@ -38,16 +38,16 @@ def _generate_uuid() -> str:
 
 
 class Auth:
-    """Auth class to interact with the authentication database.
+    """Auth class for  authentication database.
     """
 
     def __init__(self):
-        """_summary_
+        """user model
         """
         self._db = DB()
 
     def register_user(self, email: str, password: str) -> Union[None, User]:
-        """_summary_
+        """user model
         """
         try:
             # find the user with the given email
@@ -61,7 +61,7 @@ class Auth:
             raise ValueError('User {} already exists'.format(email))
 
     def valid_login(self, email: str, password: str) -> bool:
-        """_summary_
+        """_user model
 
         Args:
             email (str): _description_
@@ -79,7 +79,7 @@ class Auth:
         return bcrypt.checkpw(password.encode('utf-8'), user.hashed_password)
 
     def create_session(self, email: str) -> str:
-        """_summary_
+        """_user model_
 
         Args:
             email (str): _description_
@@ -96,7 +96,7 @@ class Auth:
             return user.session_id
 
     def get_user_from_session_id(self, session_id: str) -> User:
-        """_summary_
+        """user model_
 
         Args:
             session_id (_type_): _description_
@@ -111,7 +111,7 @@ class Auth:
             return user
 
     def destroy_session(self, user_id: str) -> None:
-        """_summary_
+        """user model_
 
         Args:
             user_id (str): _description_
